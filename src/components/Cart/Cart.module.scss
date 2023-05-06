@@ -1,0 +1,17 @@
+.product {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    padding: 10px;
+    &__img {
+        display: block;
+        width: 30%;
+    }
+    &__info {
+        width: 60%;
+    }
+    &__btns {
+        display: flex;
+        justify-content: space-between;
+    }
+}
