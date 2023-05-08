@@ -23,7 +23,7 @@ export const Homepage = () => {
         dispatch(setProducts({products}));
     };
         getProducts()
-    }, []);
+    }, [dispatch]);
 
     const onAddHandler = (id: string, price: number, name: string, img: string, quantity: number) => dispatch(addToCart({id, name, price, img, quantity})) 
     
@@ -40,18 +40,23 @@ export const Homepage = () => {
         dispatch(decrement({id/* , price: price, quantity: quantity */}))
     }
 
+    const isInCart = (id: string) => {
+        const product = productsInCart.find(el => el.id === id)
+        if (product) return true
+    }
+
     const productsItems = products.map((el) => {
          return <Paper variant="outlined" key={el.id} style={{width: '40%', padding: '10px'}}>
         <img src={el.img} alt={el.name} style={{maxWidth: '100px', }}/>
 
         <h2>{el.name}</h2>
         <h2>{el.price}$</h2>
-        { el.quantity === 0 ? 
+        { /* el.quantity === 0 */ !isInCart(el.id)  ? 
             <Button onClick={() => onAddHandler(el.id, el.price, el.name, el.img, el.quantity)} variant="contained">Add to cart</Button>
         : 
         <>
          <Button variant="outlined" style={{background: "grey", fontSize: '15px'}} onClick={() => onDecrement(el.id/* , el.quantity, el.price */)}>-</Button>
-            {productQuantity(el.id)}
+            { productQuantity(el.id)/* el.quantity */}
           <Button variant="outlined" style={{background: "grey", fontSize: '15px'}} onClick={() => onIncrement(el.id/* , el.quantity, el.price */)}>+</Button>
           </>
         }
@@ -59,7 +64,7 @@ export const Homepage = () => {
         </Paper >
     }) 
 
-    return <Container maxWidth="md">
+    return <Container maxWidth="lg">
         <h1>Homepage</h1>
         <div className={s.products}>            
             {productsItems}

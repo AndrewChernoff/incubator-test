@@ -1,23 +1,29 @@
 import { cartSlice } from './slices/cartSlice';
-import { compose, configureStore } from '@reduxjs/toolkit'
+import { combineReducers, compose, configureStore } from '@reduxjs/toolkit'
 import productsSlice from './slices/productsSlice'
 import appSlice from './slices/appSlice';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'
 
 
-/* declare global {
-    interface Window {
-      __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-    }
-}
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
- */
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage
+};
+
+const reducers = combineReducers({
+  app: appSlice,
+  productsSlice: productsSlice,
+  cart: cartSlice.reducer,
+})
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+
 export const store = configureStore({
-  reducer: {
-    app: appSlice,
-    productsSlice: productsSlice,
-    cart: cartSlice.reducer,
-  },
+  reducer: persistedReducer,
 },)
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

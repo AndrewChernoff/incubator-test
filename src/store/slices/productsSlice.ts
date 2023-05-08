@@ -25,7 +25,7 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     setProducts: (state, action: PayloadAction<{products: ProductType[]}>) => {
-      const arr = action.payload.products.map(el => ({...el, isInCart: false, quantity: 0}))      
+      const arr = action.payload.products.map(el => ({...el, isInCart: false}))     
       state.products = arr
     },
   },
@@ -33,11 +33,11 @@ export const productsSlice = createSlice({
     builder.addCase(addToCart, (state, action) => {
       const index = state.products.findIndex(el => el.id === action.payload.id)
       if (index !== -1) {
-       state.products[index].quantity++
+       //state.products[index].quantity++
        state.products[index].isInCart = true
       }
     })
-    .addCase(increment, (state, action: PayloadAction<{id: string}>) => {
+    /* .addCase(increment, (state, action: PayloadAction<{id: string}>) => {
       const index = state.products.findIndex(el => el.id === action.payload.id)
       if (index !== -1) {
        state.products[index].quantity++
@@ -48,7 +48,7 @@ export const productsSlice = createSlice({
       if (index !== -1) {
        state.products[index].quantity--
       }
-    })
+    }) */
   }
 })
 
