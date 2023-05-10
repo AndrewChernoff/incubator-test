@@ -1,4 +1,85 @@
 .form {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form input {
+  margin: 10px auto 0 auto;
+  border: transparent;
+  outline: 2px dotted #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 70%;
+  padding: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease-in;
+}
+
+input:focus {
+  border: transparent;
+  outline: 2px dotted #ba4fab;
+}
+
+.form.success input {
+  border-color: #2ecc71;
+}
+
+.form.error input {
+  border-color: #e74c3c;
+}
+
+.form i {
+  position: absolute;
+  top: 37px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.form.success i.fa-check-circle {
+  visibility: visible;
+  color: #2ecc71;
+}
+
+.form.error i.fa-exclamation-circle {
+  visibility: visible;
+  color: #e74c3c;
+}
+
+.form small {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.form button {
+  margin: 15px auto 0 auto;
+  background-color: #8d5185;
+  border: none;
+  color: #fff;
+  display: block;
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+
+.form button:hover {
+  background-color: #b2239f;
+}
+
+
+/* .form {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
@@ -47,4 +128,4 @@
   
   .form button:active {
     background: #395591;
-  }
+  } */

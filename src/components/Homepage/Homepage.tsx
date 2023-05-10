@@ -31,13 +31,12 @@ export const Homepage = () => {
 
 
 
-    const onIncrement = (id: string/* , quantity: number, price: number */) => {
-
-        dispatch(increment({id/* , price: price, quantity */}))  
+    const onIncrement = (id: string) => {
+        dispatch(increment({id}))  
     }
 
-    const onDecrement = (id: string/* , quantity: number, price: number */) => {
-        dispatch(decrement({id/* , price: price, quantity: quantity */}))
+    const onDecrement = (id: string) => {
+        dispatch(decrement({id}))
     }
 
     const isInCart = (id: string) => {

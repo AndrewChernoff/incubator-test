@@ -43,7 +43,7 @@ export const Cart = () => {
         </Container> 
     }
 
-    return <Container maxWidth="lg" style={{display: 'flex'}} className={s.cart}>
+    return <Container maxWidth="lg" style={{display: 'flex', marginTop: '15px'}} className={s.cart}>
         <div className={s.products}>
         {
             products.map(el => {
