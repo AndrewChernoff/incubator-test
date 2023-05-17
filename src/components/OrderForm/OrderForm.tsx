@@ -120,43 +120,7 @@ export const OrderFrom: React.FC<{}> = () => {
       />
       {formik.errors.phone && formik.touched.phone ? <div>{formik.errors.phone}</div> : null}
       <Button variant="contained">Submit</Button>
-{/*       <button type="submit">Submit</button> */}
     </form>
     </>
   );
-
-
-/*   const initialValues: MyFormValues = { 
-    firstName: '',
-    surname: '',
-    address: '',
-    phone: '',
-    productsInfo: products
-  };
-  return (
-    <div className={s.form}>
-      <Formik
-        initialValues={initialValues}
-        validate
-        onSubmit={(values, actions) => {
-          console.log({ values, actions });
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
-        }}
-      >
-        <Form>
-          <div>
-          
-          <Field id="firstName" name="firstName" placeholder="First Name" />
-          {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
-
-          </div>
-            <Field id="surname" name="surname" placeholder="Surname" />
-            <Field id="address" name="address" placeholder="address" />
-            <Field id="phone" name="phone" placeholder="phone" />
-          <button type="submit">Order</button>
-        </Form>
-      </Formik>
-    </div>
-  ); */
 };

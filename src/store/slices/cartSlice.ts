@@ -44,13 +44,13 @@ export const cartSlice = createSlice({
             state.products.push(newItem)
         }
       },
-    increment: (state, action: PayloadAction<{id: string/* , price: number, quantity: number */}>) => {
+    increment: (state, action: PayloadAction<{id: string}>) => {
         const index = state.products.findIndex(item => item.id === action.payload.id)
         if (index !== -1) {
             state.products[index].quantity++
         }
     },
-    decrement: (state, action: PayloadAction<{id: string/* , price: number, quantity: number */}>) => {
+    decrement: (state, action: PayloadAction<{id: string}>) => {
         const index = state.products.findIndex(item => item.id === action.payload.id)
         if (state.products[index].quantity === 1) {
             state.products[index].quantity = 1

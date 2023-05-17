@@ -51,7 +51,7 @@ export const Homepage = () => {
         <h2>{el.name}</h2>
         <h2>{el.price}$</h2>
         { !isInCart(el.id)  ? 
-            <Button onClick={() => onAddHandler(el.id, el.price, el.name, el.img, el.quantity)} variant="contained">Add to cart</Button>
+            <Button onClick={() => onAddHandler(el.id, el.price, el.name, el.img, 1 /*quantity */)} variant="contained">Add to cart</Button>
         : 
         <>
          <Button variant="outlined" style={{ fontSize: '15px'}} onClick={() => onDecrement(el.id)}>-</Button>
