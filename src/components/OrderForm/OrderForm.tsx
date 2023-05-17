@@ -11,6 +11,7 @@ import {
 import s from './OrderForm.module.scss'
 import { useAppSelector } from '../../common/hooks/reduxHooks';
 import { CartState } from '../../store/slices/cartSlice';
+import Button from '@mui/material/Button';
 
 
 interface MyFormValues {
@@ -118,7 +119,8 @@ export const OrderFrom: React.FC<{}> = () => {
         placeholder='Phone'
       />
       {formik.errors.phone && formik.touched.phone ? <div>{formik.errors.phone}</div> : null}
-      <button type="submit">Submit</button>
+      <Button variant="contained">Submit</Button>
+{/*       <button type="submit">Submit</button> */}
     </form>
     </>
   );

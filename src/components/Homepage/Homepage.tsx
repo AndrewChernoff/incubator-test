@@ -50,13 +50,13 @@ export const Homepage = () => {
 
         <h2>{el.name}</h2>
         <h2>{el.price}$</h2>
-        { /* el.quantity === 0 */ !isInCart(el.id)  ? 
+        { !isInCart(el.id)  ? 
             <Button onClick={() => onAddHandler(el.id, el.price, el.name, el.img, el.quantity)} variant="contained">Add to cart</Button>
         : 
         <>
-         <Button variant="outlined" style={{background: "grey", fontSize: '15px'}} onClick={() => onDecrement(el.id/* , el.quantity, el.price */)}>-</Button>
-            { productQuantity(el.id)/* el.quantity */}
-          <Button variant="outlined" style={{background: "grey", fontSize: '15px'}} onClick={() => onIncrement(el.id/* , el.quantity, el.price */)}>+</Button>
+         <Button variant="outlined" style={{ fontSize: '15px'}} onClick={() => onDecrement(el.id)}>-</Button>
+            { productQuantity(el.id)}
+          <Button variant="outlined" style={{ fontSize: '15px'}} onClick={() => onIncrement(el.id)}>+</Button>
           </>
         }
 

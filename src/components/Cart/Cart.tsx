@@ -7,7 +7,7 @@ import s from './Cart.module.scss'
 import IconButton from "@mui/material/IconButton"
 import DeleteIcon from '@mui/icons-material/Delete';
 import { OrderFrom } from "../OrderForm/OrderForm"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 export const Cart = () => {
     const products = useAppSelector(state => state.cart.products)
@@ -18,7 +18,6 @@ export const Cart = () => {
          products.forEach(el => price += (el.price * el.quantity))
         return price    
     }
-
 
     useEffect(() => {
         dispatch(setTotalProductsPrice({total: getTotalPrice()}))
@@ -53,9 +52,9 @@ export const Cart = () => {
                 <h2>{el.name}</h2>
                 <h2>Quantity: {el.quantity}</h2>
                 <div className={s.product__btns}>
-                <Button variant="outlined" style={{background: "white", fontSize: '15px'}} onClick={() => onDecrement(el.id)} disabled={el.quantity === 1 ? true : false}>-</Button>
+                <Button variant="outlined" style={{fontSize: '15px'}} onClick={() => onDecrement(el.id)} disabled={el.quantity === 1 ? true : false}>-</Button>
                     <h2>{el.price * el.quantity}$</h2>
-                <Button variant="outlined" style={{background: "white", fontSize: '15px'}} onClick={() => onIncrement(el.id)}>+</Button>
+                <Button variant="outlined" style={{fontSize: '15px'}} onClick={() => onIncrement(el.id)}>+</Button>
                 </div>
                 </div>
                 <IconButton aria-label="delete" className={s.product__delete_btn} onClick={() => onRemoveItem(el.id)}>

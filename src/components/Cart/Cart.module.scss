@@ -1,12 +1,8 @@
 .cart {
-
-    .products {
-     /*    width: 80%; */
-    }
 .product {
     display: flex;
     justify-content: space-between;
-    width: 70%;
+    width: 90%;
     padding: 10px;
     position: relative;
     &__img {
